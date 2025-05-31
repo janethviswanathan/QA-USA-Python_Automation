@@ -21,6 +21,7 @@ class TestUrbanRoutes:
 
     @classmethod
     def setup_class(cls):
+        # Check if url is reachable
         if is_url_reachable(URBAN_ROUTES_URL):
             # do not modify - we need additional logging enabled in order to retrieve phone confirmation code
             from selenium.webdriver import DesiredCapabilities
@@ -60,6 +61,7 @@ class TestUrbanRoutes:
         assert active_tariff == "Supportive", (
             f"Expected active tariff 'Supportive', got '{active_tariff}'"
         )
+
 
     def test_fill_phone_number(self):
         page = UrbanRoutesPage(self.driver)
